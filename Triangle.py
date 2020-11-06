@@ -6,10 +6,31 @@ import math
 
 
 def calc():
-    a = float(entryA.get())
-    b = float(entryB.get())
-    c = float(entryC.get())
-    h = float(entryH.get())
+    labelans["text"]=""
+    a = (entryA.get())
+    b = (entryB.get())
+    c = (entryC.get())
+    h = (entryH.get())
+
+    if h == "":
+        if b == "" or a =="" or c == "":
+            pass
+        else:
+            x=1
+            a=float(a)
+            b=float(b)
+            c=float(c)
+            s = (a+b+c)/2
+            labelans["text"] = math.sqrt(s*(s-a)*(s-b)*(s-c))
+    if b!="" and h!="":
+        b=float(b)
+        h=float(h)
+        labelans["text"] = (h*b)/2
+    else:
+        if x==1:
+            pass
+        else:
+            labelans["text"] = "Could not Calculate try again"
 
 
 
@@ -25,14 +46,15 @@ entryA = Entry(width = 5)
 entryB = Entry(width = 5)
 entryC = Entry(width = 5)
 entryH = Entry(width = 5)
-
+labelans = Label(master = frame)
 
 label1.pack()
 frame.pack()
 label2.pack(side = LEFT)
 button.pack(side = LEFT)
 entryA.place(x= 240, y = 110)
-entryB.place(x=470, y= 150)
+entryC.place(x=470, y= 150)
 entryH.place(x= 375, y = 120)
-entryC.place(x=340, y= 240)
+entryB.place(x=340, y= 240)
+labelans.pack(side= LEFT)
 main.mainloop()
