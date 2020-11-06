@@ -21,11 +21,14 @@ def calc():
             b=float(b)
             c=float(c)
             s = (a+b+c)/2
-            labelans["text"] = math.sqrt(s*(s-a)*(s-b)*(s-c))
+            if s*(s-a)*(s-b)*(s-c) <= 0:
+                labelans["text"] = "Impossible triangle"
+            else:
+                labelans["text"] = round(math.sqrt(s*(s-a)*(s-b)*(s-c)),2)
     if b!="" and h!="":
         b=float(b)
         h=float(h)
-        labelans["text"] = (h*b)/2
+        labelans["text"] = round((h*b)/2,2)
     else:
         if x==1:
             pass
